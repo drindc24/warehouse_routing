@@ -6,7 +6,11 @@ class Product < ApplicationRecord
   before_save :assign_destination
 
   def assign_destination
-    ref_destinations = Destination.joins(:references).where(references: {id: reference_id})
+    ref_destinations = Destination.joins(:references, :categories)
+                                  .where(
+                                    references: { id: reference_id },
+                                    categories: { id: category_id }
+                                  )
 
     if ref_destinations.empty?
       cat_destinations = Destination.joins(:categories).where(categories: {id: category_id})
