@@ -3,7 +3,7 @@ class DestinationsController < ApplicationController
 
   # GET /destinations or /destinations.json
   def index
-    @destinations = Destination.all
+    @destinations = Destination.all.includes(:categories, :references)
   end
 
   # GET /destinations/1 or /destinations/1.json

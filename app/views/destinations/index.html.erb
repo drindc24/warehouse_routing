@@ -5,6 +5,8 @@
 <table>
   <thead>
     <tr>
+      <th>References</th>
+      <th>Categories</th>
       <th>Maximum product price</th>
       <th colspan="3"></th>
     </tr>
@@ -13,6 +15,8 @@
   <tbody>
     <% @destinations.each do |destination| %>
       <tr>
+        <td><%= references(destination)%></td>
+        <td><%= categories(destination)%></td>
         <td><%= destination.maximum_product_price %></td>
         <td><%= link_to 'Show', destination %></td>
         <td><%= link_to 'Edit', edit_destination_path(destination) %></td>
