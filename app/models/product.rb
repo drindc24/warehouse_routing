@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   belongs_to :category
   belongs_to :destination, optional: true
 
-  before_create :assign_destination
+  before_save :assign_destination
 
   def assign_destination
     ref_destinations = Destination.joins(:references).where(references: {id: reference_id})
