@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Reference, type: :model do
   describe '#relationships' do
-    it { should belong_to(:destination) }
+    it { should belong_to(:destination).optional(true) }
   end
 
   describe '#validations' do
