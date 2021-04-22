@@ -11,6 +11,12 @@
   </head>
 
   <body>
+    <div class="topnav">
+      <%= link_to 'Products', root_path, class: 'active' %>
+      <%= link_to 'References', references_path %>
+      <%= link_to 'Destinations', destinations_path %>
+      <%= link_to 'Categories', categories_path %>
+    </div>
     <%= yield %>
   </body>
 </html>
