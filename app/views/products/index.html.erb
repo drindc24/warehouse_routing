@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Destination</th>
       <th>Reference</th>
       <th>Category</th>
       <th>Name</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
+        <td><%= product.destination_id %></td>
         <td><%= product.reference_id %></td>
         <td><%= product.category_id %></td>
         <td><%= product.name %></td>
