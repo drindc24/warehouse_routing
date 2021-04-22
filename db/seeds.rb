@@ -1,7 +1,17 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+# create categories
 #
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+%w(food entertainment sports tech lifestyle).each do |category_name|
+  Category.create(name: category_name)
+end
+
+#create destinations
+
+20.times.each do
+  destination = Destination.create(
+    maximum_product_price: rand(10000).to_d
+  )
+  destination.categories = Category.all.sample(2)
+  destination.save
+end
+
+10.times { Reference.create(ref_code: SecureRandom.hex, destination: Destination.all.sample) }
